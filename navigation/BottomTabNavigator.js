@@ -12,6 +12,7 @@ import Resultat from '../screens/Resultat';
 import Authentification from '../screens/Authentification';
 import HomePage from '../screens/HomePage';
 import CreateAccount from '../screens/CreateAccount';
+import CINEBOUT from '../components/CINEBOUT';
 
 
 const BottomTab = createBottomTabNavigator();
@@ -36,7 +37,7 @@ export default function BottomTabNavigator({ navigation, route }) {
 
       <BottomTab.Screen
         name="User"
-        component={Resultat}
+        component={User}
         options={{
           title: 'User',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-person" />,
@@ -45,19 +46,19 @@ export default function BottomTabNavigator({ navigation, route }) {
 
       <BottomTab.Screen
         name="GetHelp"
-        component={Controle}
+        component={CINEBOUT}
         options={{
           title: 'GetHelp',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-chatboxes" />,
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-bulb" />,
         }}
       />
 
       <BottomTab.Screen
-        name="Settings"
+        name="CINE"
         component={Discussion}
         options={{
-          title: 'Settings',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-settings" />,
+          title: 'CINE',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-chatboxes" />,
 
         }}
       />
