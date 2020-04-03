@@ -9,6 +9,11 @@ import User from '../screens/User';
 import Discussion from '../screens/Discussion';
 import Controle from '../screens/Controle';
 import Resultat from '../screens/Resultat';
+import Authentification from '../screens/Authentification';
+import HomePage from '../screens/HomePage';
+import CreateAccount from '../screens/CreateAccount';
+
+
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = 'Home';
 
@@ -20,6 +25,7 @@ export default function BottomTabNavigator({ navigation, route }) {
 
   return (
     <BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME}>
+
       <BottomTab.Screen
         name="Home"
         component={Accueil}
@@ -52,6 +58,7 @@ export default function BottomTabNavigator({ navigation, route }) {
         options={{
           title: 'Settings',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-settings" />,
+
         }}
       />
     </BottomTab.Navigator>
@@ -62,6 +69,7 @@ function getHeaderTitle(route) {
   const routeName = route.state?.routes[route.state.index]?.name ?? INITIAL_ROUTE_NAME;
 
   switch (routeName) {
+    
     case 'Home':
       return 'Home';
     case 'User':
@@ -70,6 +78,7 @@ function getHeaderTitle(route) {
       return 'How to get Help';
     case 'Settings':
       return 'Settings';
+
     
   }
 }

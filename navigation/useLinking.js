@@ -12,7 +12,10 @@ export default function(containerRef) {
           Links: 'links',
           Controle: 'controle',
           Settings: 'settings',
-          
+          Authentification: 'auth',
+          HomePage: 'connexion',
+          CreateAccount: 'createaccount',
+          Accueil: 'accueil',
         },
       },
     },
