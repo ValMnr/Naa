@@ -1,0 +1,46 @@
+
+H2 { text-align: center }
+
+.blocktext{
+    padding: 60px 0;
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+
+.background
+{
+    background-color :#d1e4d3 ;
+}
+
+  .scroll
+  {
+    overflow:scroll;
+  }
+
+    .border {
+    border-width:10px;
+    border-style:solid;
+    border-color: #2F4F4F;
+    background-color :#d1e4d3 ;
+    }
+
+    body{
+        background-color : black ; 
+    }
+
+    .float_right { float: right; }
+    
+    .business {
+        margin: auto;
+        width: 50%;
+    }
+
+    .arrondi {
+       border-radius : 10px; 
+    }
+.center
+{
+    justifyContent: 'center',
+
+}
