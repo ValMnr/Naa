@@ -4,6 +4,10 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import ChatBox from '../screens/ChatBox';
+import Authentification from '../screens/Authentification';
+import HomePage from '../screens/HomePage';
+import CreateAccount from '../screens/CreateAccount';
+import Accueil from '../screens/Accueil';
 
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = 'Home';
@@ -16,6 +20,7 @@ export default function BottomTabNavigator({ navigation, route }) {
 
   return (
     <BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME}>
+
       <BottomTab.Screen
         name="Home"
         component={HomeScreen}
@@ -26,6 +31,34 @@ export default function BottomTabNavigator({ navigation, route }) {
       />
 
       <BottomTab.Screen
+        name="HomePage"
+        component={HomePage}
+        options={{
+          title: 'HomePage',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
+        }}
+      />
+
+
+      <BottomTab.Screen
+        name="Authentification"
+        component={Authentification}
+        options={{
+          title: 'Authentification',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
+        }}
+      />  
+      
+      <BottomTab.Screen
+        name="Create Account"
+        component={CreateAccount}
+        options={{
+          title: 'Create an Account',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
+        }}
+      />  
+
+      <BottomTab.Screen
         name="Help"
         component={ChatBox}
         options={{
@@ -34,14 +67,12 @@ export default function BottomTabNavigator({ navigation, route }) {
         }}
       />
 
-
-
       <BottomTab.Screen
-        name="Links"
-        component={LinksScreen}
+        name="Accueil"
+        component={Accueil}
         options={{
-          title: 'Resources',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-book" />,
+          title: 'Home',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
         }}
       />
     </BottomTab.Navigator>
@@ -52,12 +83,17 @@ function getHeaderTitle(route) {
   const routeName = route.state?.routes[route.state.index]?.name ?? INITIAL_ROUTE_NAME;
 
   switch (routeName) {
+    
     case 'Home':
       return 'How to get started';
-    case 'Links':
-      return 'Links to learn more';
-    case 'Help':
-      return 'How to get Help';
+    case 'HomePage':
+      return 'First Page of the App';
+    case 'Auth':
+      return 'Get Authentificated';
+    case 'CreateAccount':
+      return 'Create an Account';
+    case 'Accueil':
+      return 'Welcome';
     
   }
 }

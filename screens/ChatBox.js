@@ -15,7 +15,7 @@ export default class ChatBox extends Component{
 
           },
           onExtraClick: () => {console.log('click extra1')},
-          icon: require('./images/img11.JPG'),
+          icon: require('../assets/images/robot-dev.png'),
           extraIconStyle: {
             width: 40,
             height: 40
@@ -30,7 +30,7 @@ export default class ChatBox extends Component{
 
           },
           onExtraClick: () => {console.log('click extra2')},
-          icon: require('./images/img11.JPG'),
+          icon: require('../assets/images/robot-dev.png'),
           extraIconStyle: {
               width: 40,
               height: 40
