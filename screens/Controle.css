@@ -1,0 +1,121 @@
+.bolos {
+    font-size: 8px;
+}
+
+.bar {
+margin: auto;    
+text-align: center;
+    width: 60%;
+    Height: 40px;
+    background-color: rgb(35, 150, 150);
+
+}
+
+.User{
+    height: 100%;
+    overflow: scroll;
+}
+
+.infouser{
+    height: 20%;
+}
+.profilpsy{
+    height: 35%;
+}
+.humeur {
+    height: 35%;
+}
+
+.progressbar{
+    height: 10%;
+}
+
+.discussion {
+    height: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.rep {
+    background-color: #CAB294;
+    margin: 5px;
+    overflow: scroll;
+    border-radius:12px; 
+
+}
+
+.question{
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+.naa{
+    height: 200px;
+}
+.avatar {
+    width: 65%;
+    margin-left: 50px;
+    float: left;
+}
+
+.bulle{
+    width: 35%;
+    float: left;
+    margin-bottom: 50px;
+    padding:10px 10px; 
+    font-size: 14px;
+    border-radius:12px; 
+    background-color: #7FAA8F;
+}
+
+.sujet{
+    margin-top: 20px;
+    margin-bottom: 50px;
+    margin-left: 18px;
+    padding:10px 10px; 
+    font-size: 14px;
+    border-radius:12px; 
+    width:350px;
+    background-color: #7FAA8F;
+}
+
+.qcine {
+    font-size: 14px;
+    border-radius:12px; 
+    width:350px;
+    background-color: #CAB294;
+
+}
+
+.baba{
+    height: 100%;
+    overflow: scroll;
+}
+
+.forme{
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    
+}
+
+.result {
+    margin-left: 9px;
+    width: 95%;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    text-align: center;
+    border-radius:12px; 
+    background-color: darkseagreen;
+}
+
+.nb{
+    margin-top: 10px;
+}
+
+.retourmenu{
+    margin-left: 150px;
+    border-radius:7px; 
+    background-color: #CAB294;
+}

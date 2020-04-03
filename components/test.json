@@ -1,0 +1,58 @@
+{
+    "Discussion": [
+        {
+            "id": 1,
+            "question": "T'es qui?",
+            "reponse": [
+                "Arthur",
+                "Anne-Lise",
+                "Valentin"
+            ]
+        },
+
+        {
+            "id": 2,
+            "question": "T'habites où espece de boloss trop moche sa race?",
+            "reponse": [
+                "FSB",
+                "BDM",
+                "Paris",
+                "Nogent"
+            ]
+        },
+
+        {
+            "id": 3,
+            "question": "T'étudies où?",
+            "reponse": [
+                "FSB",
+                "BDM",
+                "Paris",
+                "Nogent"
+            ]
+        },
+
+        {
+            "id": 4,
+            "question": "T'es né où?",
+            "reponse": [
+                "FSB",
+                "BDM",
+                "Paris",
+                "Nogent"
+            ]
+        },
+
+        {
+            "id": 5,
+            "question": "Tu dors où?",
+            "reponse": [
+                "FSB",
+                "BDM",
+                "Paris",
+                "Nogent"
+            ]
+        }
+
+    ]
+}
