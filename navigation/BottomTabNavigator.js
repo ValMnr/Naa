@@ -1,10 +1,14 @@
 import * as React from 'react';
+import { View, Image } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
-import ChatBox from '../screens/ChatBox';
-
+import Accueil from '../screens/Accueil';
+import User from '../screens/User';
+import Discussion from '../screens/Discussion';
+import Controle from '../screens/Controle';
+import Resultat from '../screens/Resultat';
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = 'Home';
 
@@ -18,30 +22,36 @@ export default function BottomTabNavigator({ navigation, route }) {
     <BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME}>
       <BottomTab.Screen
         name="Home"
-        component={HomeScreen}
+        component={Accueil}
         options={{
-          title: 'Get Started',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-home" />,
         }}
       />
 
       <BottomTab.Screen
-        name="Help"
-        component={ChatBox}
+        name="User"
+        component={Resultat}
         options={{
-          title: 'Get Help',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
+          title: 'User',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-person" />,
         }}
       />
 
-
+      <BottomTab.Screen
+        name="GetHelp"
+        component={Controle}
+        options={{
+          title: 'GetHelp',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-chatboxes" />,
+        }}
+      />
 
       <BottomTab.Screen
-        name="Links"
-        component={LinksScreen}
+        name="Settings"
+        component={Discussion}
         options={{
-          title: 'Resources',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-book" />,
+          title: 'Settings',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-settings" />,
         }}
       />
     </BottomTab.Navigator>
@@ -53,11 +63,13 @@ function getHeaderTitle(route) {
 
   switch (routeName) {
     case 'Home':
-      return 'How to get started';
-    case 'Links':
-      return 'Links to learn more';
-    case 'Help':
+      return 'Home';
+    case 'User':
+      return 'Cine';
+    case 'GetHelp':
       return 'How to get Help';
+    case 'Settings':
+      return 'Settings';
     
   }
 }

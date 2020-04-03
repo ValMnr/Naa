@@ -41,6 +41,8 @@ export default function HomeScreen() {
         </View>
       </ScrollView>
 
+
+
       <View style={styles.tabBarInfoContainer}>
         <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
 
