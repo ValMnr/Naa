@@ -15,9 +15,13 @@ import "../screens/App.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ScrollView } from 'react-native-gesture-handler';
 import * as WebBrowser from 'expo-web-browser';
+import { NavigationContainer } from '@react-navigation/native';
 
 import { MonoText } from '../components/StyledText';
+import Authentification from '../screens/Authentification';
 
+ 
+/*
 class HomePage extends React.Component {
     constructor(props) {
       super(props);
@@ -54,8 +58,13 @@ class HomePage extends React.Component {
         />
 </View>
 <br/><br/><br/>
-<Button color="secondary" size="lg" block>Se connecter</Button>
+<Button 
+title = "Se connecter"
+
+/>
+
 <br/>
+
 <Button color="secondary" size="lg" block>S'inscrire</Button>
 </div>
     </div>
@@ -67,3 +76,16 @@ class HomePage extends React.Component {
   }
 
 export default HomePage ; 
+*/
+export default function HomePage ({navigation})
+ {
+return (
+  <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <Text>Se connecter</Text>
+    <Button
+      title="Se connecter"
+      onClick={() => navigation.navigate('Auth')}
+    />
+  </View>
+);
+}
