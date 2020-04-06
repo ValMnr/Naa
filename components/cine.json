@@ -1,0 +1,106 @@
+{
+    "Controle": [
+        {
+            "id": 1,
+            "sujet":"Vous postulez pour un poste important. Vous ne maîtrisez que vaguement le sujet. Vous vous êtes donc renseigné sur l’entreprise et les missions la veille de l’entretien. Vous êtes dans le hall d’entrée et attendez d’être reçu. ",
+            "q1": "Vous reprochez-vous de ne pas vous être mieux préparé ? ",
+            "q2": "Répétez-vous vos phrases d’accroche ? ",
+            "q3": "Mettez-vous en place un plan exact de votre discours ?",
+            "q4": "Faites-vous des exercices de relaxation ?",
+            "q5": "Avez-vous confiance en ce que vous avez lu la veille ?"
+        },
+        {
+            "id": 2,
+            "sujet":"Vous passez un examen important pour votre carrière, vous avez reçu une confirmation d’envoi de vos résultats. Vous les aurez sous 24h. ",
+            "q1": "L’attente des résultats affecte-t-elle votre comportement physique ?",
+            "q2": "Vous avez suffisamment révisé, vous n’auriez pas pu mieux faire ?",
+            "q3": "Remettez-vous en question la réussite de votre examen ?",
+            "q4": "Souhaitez-vous revenir au moment de l’examen pour modifier vos réponses ?",
+            "q5": "Vous pensez à autre chose, rien ne sert de s’inquiéter ?"
+        },{
+            "id": 3,
+            "sujet":"Un membre de votre groupe de travail gère mal sa partie et perd du temps tout au long du projet. ",
+            "q1": "Vous vous dites que vous ne pourriez pas mieux faire ?",
+            "q2": "Vous faites comprendre à la personne qu’elle ne fait pas bien les choses ?",
+            "q3": "Vous faites vous même le travail sans en parler à personne ?",
+            "q4": "Vous faites confiance à la personne et pensez que cette situation est passagère ? ",
+            "q5": "Vous critiquez la personne ouvertement en réunion ?"
+        }
+
+    ],
+
+    "Imprevisibilte": [
+        {
+            "id": 1,
+            "sujet":"Vous êtes attendus pour un entretien d’embauche mais votre train a 30 minutes de retard. ",
+            "q1": "Vous attendez le train ? Un autre trajet serait surement plus long.",
+            "q2": "Vous appelez l’entreprise et expliquez la situation ?",
+            "q3": "Sans réfléchir vous courrez pour un autre itinéraire ? ",
+            "q4": "Vous annulez le rendez vous ? ",
+            "q5": "Pas de soucis, vous aviez pris de l’avance ? "
+        },
+        {
+            "id": 2,
+            "sujet":"Vous êtes étudiant. Un jour, pendant un cours banal, un examen apparaît. Personne n’était au courant, et la matière est assez compliquée. ",
+            "q1": "Vous êtes confiant et repensez à la dernière fois que vous avez lu le cours ? ",
+            "q2": "Vous ne connaissez pas votre cours mais vous pensez que vous pouvez vous en tirer avec du bon sens ? ",
+            "q3": "Vous sortez de la salle avant même que l’examen commence ?",
+            "q4": "Vous vous dites que ce n’est qu’un examen parmis tant d’autre, cette note n’est pas si importante ?",
+            "q5": "Vous lisez une dernière fois votre cours avant que l’examen commence ? "
+        },
+        {
+            "id": 3,
+            "sujet":"Vous êtes en vacances seul à l’étranger et vous perdez votre portefeuille avec tous vos papiers importants et votre argent dedans.",
+            "q1": "Vous vous dites que vous n’allez jamais rentrer chez vous ?",
+            "q2": "Vous cherchez sur qui remettre la faute ?",
+            "q3": "Vous allez simplement à l’ambassade ?",
+            "q4": "Vous continuez votre voyage, rien ne sert de paniquer ? ",
+            "q5": "Vous appelez directement votre banque pour bloquer votre carte ?"
+        }
+
+    ], 
+
+    "Nouveaute": [
+        {
+            "id": 1,
+            "sujet":"Vous êtes étudiant et dans le cadre de vos études vous partez en échange universitaire dans un pays étranger pendant un semestre.",
+            "q1": "Avez-vous peur de vivre cette aventure seul ?",
+            "q2": "Pensez-vous que votre routine changera ?",
+            "q3": "Êtes-vous réticent à l’idée de la nouveauté ?",
+            "q4": "Etes-vous capable de vous adapter à une nouvelle culture ?",
+            "q5": "Avez-vous besoin de faire un To Do List avant le départ ?"
+        },
+        {
+            "id": 2,
+            "sujet":"Vous avez 30 ans et vous venez d’apprendre votre première grossesse. Vous et votre conjoint n’avaient jamais eu d’enfant. ",
+            "q1": "Avez-vous peur face aux nouvelles responsabilités ?",
+            "q2": "Pensez-vous ne pas être prêt pour ça ?",
+            "q3": "Avez-vous peur de vous tromper lors d’une situation nouvelle ?",
+            "q4": "La préparation de cette grossesse va-t-elle influencer sur votre vie de couple ?",
+            "q5": "Auriez-vous besoin d’accompagnement pendant la grossesse ?"
+        }
+
+    ], 
+
+    "Ego": [
+        {
+            "id": 1,
+            "sujet":"Cela fait 5 ans que vous travaillez dans la même entreprise et vous vous faites licencier du jour au lendemain.",
+            "q1": "Avez-vous confiance en vos capacités ?",
+            "q2": "Acceptez-vous les critiques ?",
+            "q3": "Avez-vous besoin de vous isoler suite à cette déclaration ?",
+            "q4": "Cherchez-vous des explications auprès de votre supérieur ?",
+            "q5": "Remettez-vous en cause votre travail effectué durant  les 5 ans passés dans cette entreprise ?"
+        },{
+            "id": 2,
+            "sujet":"Votre médecin vous reproche de ne pas vous occuper assez bien de vos enfants. Il aborde les thèmes de la malnutrition, du manque de sorties et de l’encadrement scolaire.",
+            "q1": "Remettez vous en question ?",
+            "q2": "Son jugement va-t-il influencer sur votre manière de faire ?",
+            "q3": "Son autorité médicale vous influencera-t-elle ?",
+            "q4": "Vous changez de médecin ?",
+            "q5": "Avez vous besoin de conseils pour évoluer ?",
+            "q6":"Parlez vous en avec votre enfant ?"
+        }
+
+    ]
+}
