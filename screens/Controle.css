@@ -17,18 +17,15 @@ text-align: center;
 }
 
 .infouser{
-    height: 20%;
+    height: 22%;
 }
 .profilpsy{
-    height: 35%;
+    height: 39%;
 }
 .humeur {
     height: 35%;
 }
 
-.progressbar{
-    height: 10%;
-}
 
 .discussion {
     height: 100%;
@@ -118,4 +115,14 @@ text-align: center;
     margin-left: 150px;
     border-radius:7px; 
     background-color: #CAB294;
+}
+
+
+.progressbar{
+    margin-top: 15px;
+}
+
+.Camembert {
+    text-align: center;
+    margin-top: 100px;
 }

@@ -27,10 +27,6 @@ export class User extends Component {
             <Humeur></Humeur>
 
             </div>
-            <div className="progressbar">
-
-            <Progression></Progression>
-            </div>
             </div>
         );
 

@@ -4,6 +4,10 @@ import {
 } from 'recharts';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../screens/Controle.css';
+import C from '../screens/images/C.png';
+import I from '../screens/images/I.png';
+import N from '../screens/images/N.png';
+import E from '../screens/images/E.png';
     
 
 const data = [
@@ -47,7 +51,30 @@ export default class CINEBOUT extends PureComponent {
 
 
         <div className="Camembert">
-      <PieChart width={100000} height={1200}>
+          <div className="haut">
+            <a href="../screens/Controle.js">
+            <img  src={C} alt="" height="110px" width="111px"></img>
+            </a>
+            <a href="../screens/Imprevisibilite.js">
+            <img  src={I} alt="" height="110px"></img>
+            </a>
+          </div>
+          <div className="bas">
+          <a href="../screens/Nouveaute.js">
+            <img src={N} alt="" height="110px"></img>
+            </a>
+            <a href="../screens/Ego.js">
+            <img src={E} alt="" height="110px"></img>
+            </a>
+          </div>
+      </div>
+
+      </div>
+    );
+  }
+}
+
+/*<PieChart width={100000} height={1200}>
         <Pie
           data={data}
           cx={190}
@@ -62,10 +89,4 @@ export default class CINEBOUT extends PureComponent {
             data.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)
           }
         </Pie>
-      </PieChart>
-      </div>
-
-      </div>
-    );
-  }
-}
+      </PieChart>*/
