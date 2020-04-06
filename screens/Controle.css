@@ -86,7 +86,6 @@ text-align: center;
 }
 
 .baba{
-    height: 100%;
     overflow: scroll;
 }
 
@@ -94,6 +93,7 @@ text-align: center;
     align-items: center;
     text-align: center;
     width: 100%;
+    overflow: scroll;
     
 }
 
