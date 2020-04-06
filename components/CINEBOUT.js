@@ -1,92 +1,76 @@
-import React, { PureComponent } from 'react';
-import {
-  PieChart, Pie, Sector, Cell,
-} from 'recharts';
+import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {Button} from 'react-bootstrap';
 import '../screens/Controle.css';
-import C from '../screens/images/C.png';
-import I from '../screens/images/I.png';
-import N from '../screens/images/N.png';
-import E from '../screens/images/E.png';
+import Controle from '../screens/Controle.js';
+
+
+class CINEBOUT extends Component {
+
+  state = {
+    nom: '',
+    type: 'CINE',
+    showParcours: '',
+    showMenu: true
+  };
+
+  constructor(props){
+    super(props);
+    this.goParcours = this.goParcours.bind(this);
+    this.goMenu = this.goMenu.bind(this);
+  
+
+  }
+
+  goParcours(){
+    this.setState({showParcours: true})
+    this.setState({showMenu : false})
+    this.setState({type: event.target.value})
+    switch (event.target.value)
+    {
+      case 'C' : 
+      this.setState({nom: "CONTRÔLE"})
+      break;
+      case 'I' : 
+      this.setState({nom: "IMPRÉSIVIBILITÉ"})
+      break;
+      case 'N' : 
+      this.setState({nom: "NOUVEAUTÉ"})
+      break;
+      case 'E' : 
+      this.setState({nom: "ÉGO MENACÉ"})
+      break;
+ 
+    }
     
+  }
 
-const data = [
-  { name: 'Group A', value: 400 },
-  { name: 'Group B', value: 400 },
-  { name: 'Group C', value: 400 },
-  { name: 'Group D', value: 400 },
-];
-
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
-
-const RADIAN = Math.PI / 180;
-const renderCustomizedLabel = ({
-  cx, cy, midAngle, innerRadius, outerRadius, percent, index,
-}) => {
-    const cine = ["IMPRÉVISiBILITÉ","CONTRÔLE","NOUVEAUTÉ","ÉGO MENACÉ"]
-   const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
-  const x = cx + radius * Math.cos(-midAngle * RADIAN);
-  const y = cy + radius * Math.sin(-midAngle * RADIAN);
-
-  return (
-    <text className="bolos" x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
-      {cine[index]}
-    </text>
-  );
-};
-
-
-
-export default class CINEBOUT extends PureComponent {
-  static jsfiddleUrl = 'https://jsfiddle.net/alidingling/c9pL8k61/';
+  goMenu(){
+    this.setState({showParcours: false})
+    this.setState({showMenu : true})
+  }
 
   render() {
-    return (
+    return <div> 
+      { this.state.showParcours ? <Controle type={this.state.type} nom={this.state.nom}/> : null }
 
-      <div>
-        <div className="bar">
-          <h2> Menu CINE </h2>
-
-        </div>
-
-
-        <div className="Camembert">
-          <div className="haut">
-            <a href="../screens/Controle.js">
-            <img  src={C} alt="" height="110px" width="111px"></img>
-            </a>
-            <a href="../screens/Imprevisibilite.js">
-            <img  src={I} alt="" height="110px"></img>
-            </a>
-          </div>
-          <div className="bas">
-          <a href="../screens/Nouveaute.js">
-            <img src={N} alt="" height="110px"></img>
-            </a>
-            <a href="../screens/Ego.js">
-            <img src={E} alt="" height="110px"></img>
-            </a>
-          </div>
-      </div>
+          <Button size = "lg" variant = "info" className="bar" onClick= {this.goMenu} block> Menu CINE </Button>
+        
+          { this.state.showMenu ?  <div className="Camembert"> 
+            
+          
+            <Button size = "lg" variant = "secondary" value= "C" onClick={this.goParcours} block> CONTROLE</Button>
+            <Button size= "lg" variant = "warning" value = "I" onClick={this.goParcours} block>IMPREVISIBILITE</Button> 
+   
+   
+            <Button size= "lg" variant = "info" value="N" onClick={this.goParcours} block>NOUVEAUTE</Button>
+            <Button size= "lg" variant = "dark" value= "E" onClick={this.goParcours} block >EGO MENACE</Button>
+           
+            </div>   : null } 
 
       </div>
-    );
+    
   }
 }
 
-/*<PieChart width={100000} height={1200}>
-        <Pie
-          data={data}
-          cx={190}
-          cy={200}
-          labelLine={false}
-          label={renderCustomizedLabel}
-          outerRadius={110}
-          fill="#8884d8"
-          dataKey="value"
-        >
-          {
-            data.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)
-          }
-        </Pie>
-      </PieChart>*/
+export default CINEBOUT;
