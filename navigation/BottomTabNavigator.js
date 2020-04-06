@@ -1,16 +1,21 @@
 import * as React from 'react';
+import { View, Image } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
-import ChatBox from '../screens/ChatBox';
+import Accueil from '../screens/Accueil';
+import User from '../screens/User';
+import Discussion from '../screens/Discussion';
+import Controle from '../screens/Controle';
+import Resultat from '../screens/Resultat';
 import Authentification from '../screens/Authentification';
 import HomePage from '../screens/HomePage';
 import CreateAccount from '../screens/CreateAccount';
-import Accueil from '../screens/Accueil';
+
 
 const BottomTab = createBottomTabNavigator();
-const INITIAL_ROUTE_NAME = 'Home';
+
+const INITIAL_ROUTE_NAME = 'Connexion';
 
 export default function BottomTabNavigator({ navigation, route }) {
   // Set the header title on the parent stack navigator depending on the
@@ -19,60 +24,67 @@ export default function BottomTabNavigator({ navigation, route }) {
   navigation.setOptions({ headerTitle: getHeaderTitle(route) });
 
   return (
-    <BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME}>
+   // <BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME}>
+
+   <BottomTab.Navigator initialRouteName = "Connexion" >
 
       <BottomTab.Screen
         name="Home"
-        component={HomeScreen}
-        options={{
-          title: 'Get Started',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
-        }}
-      />
-
-      <BottomTab.Screen
-        name="HomePage"
-        component={HomePage}
-        options={{
-          title: 'HomePage',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
-        }}
-      />
-
-
-      <BottomTab.Screen
-        name="Authentification"
-        component={Authentification}
-        options={{
-          title: 'Authentification',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
-        }}
-      />  
-      
-      <BottomTab.Screen
-        name="Create Account"
-        component={CreateAccount}
-        options={{
-          title: 'Create an Account',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
-        }}
-      />  
-
-      <BottomTab.Screen
-        name="Help"
-        component={ChatBox}
-        options={{
-          title: 'Get Help',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
-        }}
-      />
-
-      <BottomTab.Screen
-        name="Accueil"
         component={Accueil}
         options={{
-          title: 'Home',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-home" />,
+        }}
+      />
+
+<BottomTab.Screen
+        name="Connexion"
+        component={HomePage}
+        options={{
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-home" />,
+        }}
+      />
+
+      <BottomTab.Screen
+        name="Auth"
+        component={Authentification}
+        options={{
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-home" />,
+        }}
+      />
+
+      <BottomTab.Screen
+        name="Create"
+        component={CreateAccount}
+        options={{
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-home" />,
+        }}
+      />
+
+      <BottomTab.Screen
+        name="User"
+        component={Resultat}
+        options={{
+          title: 'User',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-person" />,
+        }}
+      />
+
+      <BottomTab.Screen
+        name="GetHelp"
+        component={Controle}
+        options={{
+          title: 'GetHelp',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-chatboxes" />,
+        }}
+      />
+
+      <BottomTab.Screen
+        name="Settings"
+        component={Discussion}
+        options={{
+          title: 'Settings',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-settings" />,
+
         }}
       />
     </BottomTab.Navigator>
@@ -84,16 +96,24 @@ function getHeaderTitle(route) {
 
   switch (routeName) {
     
+    case 'Connexion':
+        return 'HomePage';
     case 'Home':
-      return 'How to get started';
-    case 'HomePage':
-      return 'First Page of the App';
+      return 'Home';
+    
     case 'Auth':
-      return 'Get Authentificated';
+        return 'Authentification';
+    case 'Create':
+        return 'CreateAccount';
+    case 'User':
+      return 'Cine';
     case 'CreateAccount':
-      return 'Create an Account';
-    case 'Accueil':
-      return 'Welcome';
+      return 'Create';
+    case 'GetHelp':
+      return 'How to get Help';
+    case 'Settings':
+      return 'Settings';
+
     
   }
 }
