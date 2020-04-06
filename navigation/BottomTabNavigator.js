@@ -2,7 +2,6 @@ import * as React from 'react';
 import { View, Image } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import Accueil from '../screens/Accueil';
 import User from '../screens/User';
@@ -16,7 +15,8 @@ import CINEBOUT from '../components/CINEBOUT';
 
 
 const BottomTab = createBottomTabNavigator();
-const INITIAL_ROUTE_NAME = 'Home';
+
+const INITIAL_ROUTE_NAME = 'Connexion';
 
 export default function BottomTabNavigator({ navigation, route }) {
   // Set the header title on the parent stack navigator depending on the
@@ -25,7 +25,9 @@ export default function BottomTabNavigator({ navigation, route }) {
   navigation.setOptions({ headerTitle: getHeaderTitle(route) });
 
   return (
-    <BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME}>
+   // <BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME}>
+
+   <BottomTab.Navigator initialRouteName = "Connexion" >
 
       <BottomTab.Screen
         name="Home"
@@ -35,21 +37,37 @@ export default function BottomTabNavigator({ navigation, route }) {
         }}
       />
 
-      <BottomTab.Screen
-        name="User"
-        component={User}
+<BottomTab.Screen
+        name="Connexion"
+        component={HomePage}
         options={{
-          title: 'User',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-person" />,
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-home" />,
         }}
       />
 
       <BottomTab.Screen
-        name="CINE"
-        component={CINEBOUT}
+        name="Auth"
+        component={Authentification}
         options={{
-          title: 'CINE',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-bulb" />,
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-home" />,
+        }}
+      />
+
+      <BottomTab.Screen
+        name="Create"
+        component={CreateAccount}
+        options={{
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-home" />,
+        }}
+      />
+
+      <BottomTab.Screen
+        name="User"
+        component={Resultat}
+        options={{
+          title: 'User',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-person" />,
+
         }}
       />
 
@@ -59,6 +77,16 @@ export default function BottomTabNavigator({ navigation, route }) {
         options={{
           title: 'GetHelp',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-chatboxes" />,
+        }}
+      />
+
+      <BottomTab.Screen
+        name="Settings"
+        component={Discussion}
+        options={{
+          title: 'Settings',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-settings" />,
+
 
         }}
       />
@@ -72,14 +100,24 @@ function getHeaderTitle(route) {
 
   switch (routeName) {
     
+    case 'Connexion':
+        return 'HomePage';
     case 'Home':
       return 'Home';
+ 
+    case 'Auth':
+        return 'Authentification';
+    case 'Create':
+        return 'CreateAccount';
     case 'User':
-      return 'Profile';
+      return 'Cine';
+    case 'CreateAccount':
+      return 'Create';
     case 'GetHelp':
       return 'How to get Help';
-    case 'CINE':
-      return 'CINE';
+    case 'Settings':
+      return 'Settings';
+
 
     
   }
