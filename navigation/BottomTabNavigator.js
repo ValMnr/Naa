@@ -45,23 +45,24 @@ export default function BottomTabNavigator({ navigation, route }) {
       />
 
       <BottomTab.Screen
-        name="GetHelp"
+        name="CINE"
         component={CINEBOUT}
         options={{
-          title: 'GetHelp',
+          title: 'CINE',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-bulb" />,
         }}
       />
 
       <BottomTab.Screen
-        name="CINE"
-        component={Discussion}
+        name="GetHelp"
+        component={Controle}
         options={{
-          title: 'CINE',
+          title: 'GetHelp',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-chatboxes" />,
 
         }}
       />
+      
     </BottomTab.Navigator>
   );
 }
@@ -74,11 +75,11 @@ function getHeaderTitle(route) {
     case 'Home':
       return 'Home';
     case 'User':
-      return 'Cine';
+      return 'Profile';
     case 'GetHelp':
       return 'How to get Help';
-    case 'Settings':
-      return 'Settings';
+    case 'CINE':
+      return 'CINE';
 
     
   }
