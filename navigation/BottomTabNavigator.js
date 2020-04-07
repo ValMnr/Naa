@@ -11,6 +11,7 @@ import Resultat from '../screens/Resultat';
 import Authentification from '../screens/Authentification';
 import HomePage from '../screens/HomePage';
 import CreateAccount from '../screens/CreateAccount';
+import CINEBOUT from '../components/CINEBOUT';
 
 
 const BottomTab = createBottomTabNavigator();
@@ -67,6 +68,15 @@ export default function BottomTabNavigator({ navigation, route }) {
           title: 'User',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-person" />,
         }}
+        />
+
+      <BottomTab.Screen
+        name="CINE"
+        component={CINEBOUT}
+        options={{
+          title: 'CINE',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-bulb" />,
+        }}
       />
 
       <BottomTab.Screen
@@ -84,9 +94,11 @@ export default function BottomTabNavigator({ navigation, route }) {
         options={{
           title: 'Settings',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-settings" />,
+        
 
         }}
       />
+      
     </BottomTab.Navigator>
   );
 }
@@ -113,6 +125,12 @@ function getHeaderTitle(route) {
       return 'How to get Help';
     case 'Settings':
       return 'Settings';
+    case 'User':
+      return 'Profile';
+    case 'GetHelp':
+      return 'How to get Help';
+    case 'CINE':
+      return 'CINE';
 
     
   }
