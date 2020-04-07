@@ -26,18 +26,13 @@ export default class Authentification extends React.Component {
       password: '', // password
       loading:false,
       message:"",
-      isClickAuth: false
+      isAuth: false
     }
     this.handleChangeEmail = this.handleChangeEmail.bind(this);
     this.handleChangePassword = this.handleChangePassword.bind(this);
-    this.handleClickAuth = this.handleClickAuth.bind(this);
 
   }
 
-  handleClickAuth() 
-  {
-    this.setState({isClickAuth: true});
-  }
   
   handleChangeEmail(event) { 
        this.setState({
@@ -51,7 +46,7 @@ export default class Authentification extends React.Component {
           });
            }
 
-           login=async ()=>{
+         /*  login=async ()=>{
             const email = await AsyncStorage.getItem("email")
             const password = await AsyncStorage.getItem("password")
             if(email && password){
@@ -63,9 +58,9 @@ export default class Authentification extends React.Component {
 
         componentDidMount(){
           this.login()
-      }
+      }*/
 
-      authenticate=(email, password)=>{
+      /*authenticate=(email, password)=>{
         console.log("lol de fou");
         this.setState({loading:true , message:""})
         axios.post('http://127.0.0.1:3000/api/user/login')
@@ -86,11 +81,11 @@ export default class Authentification extends React.Component {
             this.setState({message:"Error connecting to the server, Please try again later.",loading:false})
 
         })
-    }
+    }*/
 
  handlePress =  async () => {
     console.log("lol");
-    
+var self=this;
     return fetch('http://127.0.0.1:3000/api/user/login', 
     {
       method: 'POST',
@@ -107,6 +102,9 @@ export default class Authentification extends React.Component {
     .then((response) => response.json())
          .then((json) => {
         console.log(json);
+       self.setState({isAuth:true});
+       console.log(this.state.isAuth);
+       this.Authent();
         return json;
       })
 
@@ -115,28 +113,17 @@ export default class Authentification extends React.Component {
       });
   }
 
+  Authent = () =>
+  {this.props.functioncb(this.state.isAuth)}
+
 
     render() {
-      const isClickAuth = this.state.isClickAuth ; 
-      if (isClickAuth == true)
-      {
-        return <Accueil />
-      }
+     
       return (
         <div className=" scroll"> 
         <div className="background">
         <div className="blocktext">   
         <div className="business">
-
-        <View style={{
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}>
-        <Image 
-          style={{width: 300, height: 300}}
-          source={require('../assets/images/naa.png')}
-        />
-</View>
           
             <Form>
         <FormGroup>
@@ -155,11 +142,14 @@ export default class Authentification extends React.Component {
 
         <FormGroup>
           <Label for="examplePassword"></Label>
-          <Input type="password" name="password" id="examplePassword" value={this.state.password} onChange={this.handleChangePassword.bind(this)}  placeholder="Entrez votre mot de passe" />
+          <Input type="password" name="password" id="examplePassword" 
+          value={this.state.password} 
+          onChange={this.handleChangePassword.bind(this)}  
+          placeholder="Entrez votre mot de passe" />
         </FormGroup>
 
         <Button 
-        disabled={this.state.loading} 
+      //disabled={this.state.loading} 
         /*onClick={()=>this.authenticate(this.state.email,this.state.password)}>
                     {
                         (this.state.loading) ? <Spinner  color="white"/>
@@ -169,16 +159,15 @@ export default class Authentification extends React.Component {
                     }
                     */
                  
-        onClick={this.handlePress.bind(this)} 
+        onClick={this.handlePress.bind(this) } 
         color="secondary" 
-        size="lg" block
-        onClick={this.handleClickAuth.bind(this)}      
+        size="lg" 
+        block
+
+        //onClick={this.handleClickAuth.bind(this)}      
                    >
                      Valider
                 </Button>
-
-      
-
        </Form>
        </div>
     </div>
