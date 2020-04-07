@@ -23,25 +23,40 @@ import Authentification from '../screens/Authentification';
  
 /*
 class HomePage extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-          email: '',
-          password: '' };
   
-      this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
-    }
-  
-    handleChange(event) {
-      this.setState({value: event.target.value});
-    }
-  ///AFFICHE UN MESSAGE POUR DIRE QUE L'AUTHENTIFICATION A ETE REUSSI 
-    handleSubmit(event) {
-      event.preventDefault();
-    }
-  
+  constructor(props) 
+  {
+    super(props);
+
+    this.handleClickAuth = this.handleClickAuth.bind(this);
+    this.handleClickCreate = this.handleClickCreate.bind(this);
+
+    this.state = {
+      isClickAuth: false,
+      isClickCreate: false};
+  }
+
+  handleClickAuth() 
+  {
+    this.setState({isClickAuth: true});
+  }
+  handleClickCreate() 
+  {
+    this.setState({isClickCreate: true});
+  }
     render() {
+    
+      const isClickAuth = this.state.isClickAuth ; 
+      const isClickCreate = this.state.isClickCreate ; 
+
+    if (isClickAuth == true)
+    {
+      return <Authentification />
+    }
+    if (isClickCreate == true)
+    {
+      return <CreateAccount />
+    }
       return (
         <div>
         <div className="border">
@@ -59,24 +74,31 @@ class HomePage extends React.Component {
 </View>
 <br/><br/><br/>
 <Button 
-title = "Se connecter"
+color="secondary" size="lg" block
 
-/>
+onClick = {this.handleClickAuth}
+>Se connecter
+</Button>
 
 <br/>
 
-<Button color="secondary" size="lg" block>S'inscrire</Button>
-</div>
+<Button 
+color="secondary" size="lg" block
+
+onClick = {this.handleClickCreate}
+>Se connecter
+</Button></div>
+
     </div>
    
     </div>
     </div>
       );
     }
+  
   }
-
 export default HomePage ; 
-*/
+
 export default function HomePage ({navigation})
  {
 return (

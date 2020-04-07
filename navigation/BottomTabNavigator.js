@@ -50,8 +50,11 @@ export default function BottomTabNavigator({ navigation, route }) {
         component={Authentification}
         options={{
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-home" />,
+
         }}
       />
+
+   
 
       <BottomTab.Screen
         name="Create"
@@ -87,7 +90,6 @@ export default function BottomTabNavigator({ navigation, route }) {
           title: 'Settings',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-settings" />,
 
-
         }}
       />
       
@@ -118,7 +120,5 @@ function getHeaderTitle(route) {
     case 'Settings':
       return 'Settings';
 
-
-    
   }
 }
