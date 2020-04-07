@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText, CustomInput } from 'reactstrap';
 import Progression from '../components/Progression';
 import '../screens/Controle.css';
+import Resultat from './Resultat.js';
+
 
 class Controle extends Component {
   state = {
@@ -19,6 +21,9 @@ class Controle extends Component {
     r4: '',
     r5: '',
     scorePB: '',
+    showResult : false,
+    showQuestions: true,
+    scoreP: ''
   }
 
   constructor(props) {
@@ -30,6 +35,7 @@ class Controle extends Component {
     this._q4handleChange = this._q4handleChange.bind(this);
     this._q5handleChange = this._q5handleChange.bind(this);
     this.getParcours();
+    this.retourParcours = this.retourParcours.bind(this);
   }
 
   _q1handleChange(event) {
@@ -70,6 +76,12 @@ class Controle extends Component {
     else {
       this.setState({ r5: false });
     }
+
+  }
+
+  retourParcours(){
+    this.setState({showQuestions: true})
+    this.setState({showResult: false})
 
   }
 
@@ -116,7 +128,7 @@ class Controle extends Component {
       .then((response) => response.json())
 
       .then(function (res) {
-        
+  
         if (self.props.type == "C")
         {
           self.setState({ scorePB: res[0] })
@@ -133,7 +145,7 @@ class Controle extends Component {
         {
           self.setState({ scorePB: res[3] })
         }
-        console.log(self.state.scorePB)
+
           
       }).catch(function (error) {
           console.log(error);
@@ -145,7 +157,9 @@ class Controle extends Component {
 
   handlePress = async () => {
     var self = this;
-
+    console.log(this.props.type)
+    console.log(this.state.rang)
+    console.log(this.state.r1, this.state.r2, this.state.r3, this.state.r4, this.state.r5)
     fetch('http://127.0.0.1:3000/api/CINE/putsession',
       {
         method: 'POST',
@@ -162,7 +176,8 @@ class Controle extends Component {
       })
       .then(response => response.json())
       .then(function (response) {
-        console.log(response)
+        console.log(response.cpt)
+        self.setState ({scoreP: response.cpt})
         if (self.state.rang >= 3) {
           self.setState({ rang: 1 });
           self.getParcours()
@@ -171,7 +186,12 @@ class Controle extends Component {
           self.setState({ rang: self.state.rang + 1 });
           self.getParcours()
         }
+        self.setState({showResult: true})
+        self.setState({showQuestions: false})
+
+        console.log("score parcours", self.state.scoreP)
       })
+
 
       .catch((error) => {
         console.error(error);
@@ -181,6 +201,9 @@ class Controle extends Component {
 
   render() {
     return <div className="baba">
+
+  { this.state.showQuestions ?  <div> 
+
       <div className="bar">
         <h2> {this.props.nom} </h2>
       </div>
@@ -249,7 +272,17 @@ class Controle extends Component {
 
       </div>
 
-      <Button onClick={this.handlePress.bind(this)} color="secondary" size="lg" block style={{ width: "30%", marginLeft: "130px" }}> Valider </Button>
+     
+
+      <Button onClick={this.handlePress.bind(this)} color="secondary" size="lg" block style={{ width: "30%", margin: "auto", margin_bottom: "50px" }}> Valider </Button>
+
+      </div>  : null } 
+
+
+      { this.state.showResult ? <Resultat resultat={this.state.scoreP} /> : null }
+      { this.state.showResult ? 
+        <Button className="retourmenu" onClick={this.retourParcours}> Continuer </Button> 
+        : null }
 
     </div>
 
