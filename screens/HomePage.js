@@ -80,6 +80,16 @@ export default HomePage ;
 export default function HomePage ({navigation})
  {
 return (
+  <View style={{
+    justifyContent: 'center',
+    alignItems: 'center',
+  }}>
+<Image 
+style={{width: 300, height: 300}}
+source={require('../assets/images/naa.png')}
+/>
+</View>
+
   <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
     <Text>Se connecter</Text>
     <Button
