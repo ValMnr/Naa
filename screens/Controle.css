@@ -59,7 +59,7 @@ text-align: center;
 .bulle{
     width: 35%;
     float: left;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     padding:10px 10px; 
     font-size: 14px;
     border-radius:12px; 
@@ -79,7 +79,8 @@ text-align: center;
 }
 
 .qcine {
-    font-size: 14px;
+    font-size: 17px;
+    font-style: bold;
     border-radius:12px; 
     width:350px;
     background-color: #CAB294;
@@ -112,11 +113,7 @@ text-align: center;
     margin-top: 10px;
 }
 
-.retourmenu{
 
-    border-radius:7px; 
-    background-color: #CAB294;
-}
 
 
 .progressbar{
@@ -127,3 +124,27 @@ text-align: center;
     text-align: center;
     margin-top: 100px;
 }
+
+.valider {
+   
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    width: 150px;
+}
+
+.question { 
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 90px;
+}
+.retourmenu{
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 130px;
+    border-radius:7px; 
+    background-color: #CAB294;
+}
+

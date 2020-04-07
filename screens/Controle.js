@@ -221,7 +221,7 @@ class Controle extends Component {
             <div className="qcine">
               {"1)" + this.state.q1}
             </div>
-            <Input type="select" onChange={this._q1handleChange} id="qu1" style={{ width: "20%", marginLeft: "135px" }}>
+            <Input className="question" type="select" onChange={this._q1handleChange} id="qu1" >
             <option value = "choix" >choix</option>
               <option value = "true" >Oui</option>
               <option value = "false" >Non</option>
@@ -231,7 +231,7 @@ class Controle extends Component {
             <div className="qcine">
               {"2)" + this.state.q2}
             </div>
-            <Input type="select" onChange={this._q2handleChange} id="qu2" style={{ width: "20%", marginLeft: "135px" }}>
+            <Input className="question" type="select" onChange={this._q2handleChange} id="qu2" >
               <option value = "choix" >choix</option>
               <option value="true" >Oui</option>
               <option value="false" >Non</option>
@@ -241,7 +241,7 @@ class Controle extends Component {
             <div className="qcine">
               {"3)" + this.state.q3}
             </div>
-            <Input type="select" onChange={this._q3handleChange} id="qu3" style={{ width: "20%", marginLeft: "135px" }}>
+            <Input className="question" type="select" onChange={this._q3handleChange} id="qu3" >
             <option value = "choix" >choix</option>
               <option value="true" >Oui</option>
               <option value="false">Non</option>
@@ -251,7 +251,7 @@ class Controle extends Component {
             <div className="qcine">
               {"4)" + this.state.q4}
             </div>
-            <Input type="select" onChange={this._q4handleChange} id="qu4" style={{ width: "20%", marginLeft: "135px" }}>
+            <Input className="question" type="select" onChange={this._q4handleChange} id="qu4" >
             <option value = "choix" >choix</option>
               <option value="true" >Oui</option>
               <option value="false">Non</option>
@@ -261,7 +261,7 @@ class Controle extends Component {
             <div className="qcine">
               {"5)" + this.state.q5}
             </div>
-            <Input type="select" onChange={this._q5handleChange} id="qu5" style={{ width: "20%", marginLeft: "135px" }}>
+            <Input className="question" type="select" onChange={this._q5handleChange} id="qu5" >
             <option value = "choix" >choix</option>
               <option value="true" >Oui</option>
               <option value="false">Non</option>
@@ -274,14 +274,14 @@ class Controle extends Component {
 
      
 
-      <Button onClick={this.handlePress.bind(this)} color="secondary" size="lg" block style={{ width: "30%", margin: "auto", margin_bottom: "50px" }}> Valider </Button>
+      <Button className= "valider" onClick={this.handlePress.bind(this)} color="secondary" size="lg" block > Valider </Button>
 
       </div>  : null } 
 
 
       { this.state.showResult ? <Resultat resultat={this.state.scoreP} /> : null }
       { this.state.showResult ? 
-        <Button className="retourmenu" onClick={this.retourParcours}> Continuer </Button> 
+        <Button className="retourmenu" onClick={this.retourParcours} block> Continuer </Button> 
         : null }
 
     </div>
