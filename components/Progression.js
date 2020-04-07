@@ -8,9 +8,6 @@ class Progression extends Component {
    
     constructor(props) {
         super(props);
-        
-      
-      
 
     }
 
