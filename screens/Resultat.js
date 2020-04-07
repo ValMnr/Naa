@@ -53,7 +53,7 @@ class Resultat extends Component {
             return "C'est pas trop ca... On s'y met!";
         }
         else if (this.props.resultat == 3) {
-            return " Vous Ferez mieux la prochaine fois. Continuez!";
+            return " Vous ferez mieux la prochaine fois. Continuez!";
         }
         else if (this.props.resultat == 4) {
            return "C'est presque ça. Vous y êtes presque!";
@@ -71,9 +71,10 @@ class Resultat extends Component {
                 <h2> Résultats </h2>
             </div>
             <div className="result">
-                <h5 className="nb"> Vous avez obtenu un score de {this.props.resultat} </h5>
+                <h5 className="nb"> Vous avez obtenu un score de :</h5>
+                <h3 className= "score">{this.props.resultat} </h3> 
                 <img src={this.renderSwitch()} alt="" height="180px" margin-top="10px"></img>
-                <h6> {this.renderContent()} </h6>
+                <h5> {this.renderContent()} </h5>
             </div>
 
         </div>
