@@ -68,15 +68,6 @@ export default function BottomTabNavigator({ navigation, route }) {
           title: 'User',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-person" />,
         }}
-        />
-
-      <BottomTab.Screen
-        name="CINE"
-        component={CINEBOUT}
-        options={{
-          title: 'CINE',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-bulb" />,
-        }}
       />
 
       <BottomTab.Screen
@@ -94,7 +85,6 @@ export default function BottomTabNavigator({ navigation, route }) {
         options={{
           title: 'Settings',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-settings" />,
-        
 
         }}
       />
@@ -112,7 +102,7 @@ function getHeaderTitle(route) {
         return 'HomePage';
     case 'Home':
       return 'Home';
-    
+ 
     case 'Auth':
         return 'Authentification';
     case 'Create':
@@ -125,12 +115,6 @@ function getHeaderTitle(route) {
       return 'How to get Help';
     case 'Settings':
       return 'Settings';
-    case 'User':
-      return 'Profile';
-    case 'GetHelp':
-      return 'How to get Help';
-    case 'CINE':
-      return 'CINE';
 
     
   }
