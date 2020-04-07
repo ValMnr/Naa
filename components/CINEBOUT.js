@@ -51,20 +51,20 @@ class CINEBOUT extends Component {
   }
 
   render() {
-    return <div> 
+    return <div className = "baba"> 
       { this.state.showParcours ? <Controle type={this.state.type} nom={this.state.nom}/> : null }
 
-          <Button size = "lg" variant = "info" className="bar" onClick= {this.goMenu} block> Menu CINE </Button>
+          <Button size = "lg" className="bar" onClick= {this.goMenu} block> Menu CINE </Button>
         
           { this.state.showMenu ?  <div className="Camembert"> 
             
           
-            <Button size = "lg" variant = "secondary" value= "C" onClick={this.goParcours} block> CONTROLE</Button>
-            <Button size= "lg" variant = "warning" value = "I" onClick={this.goParcours} block>IMPREVISIBILITE</Button> 
+            <Button className= "Btn-CINE" variant = "secondary" value= "C" onClick={this.goParcours} block> CONTROLE</Button>
+            <Button className= "Btn-CINE" variant = "warning" value = "I" onClick={this.goParcours} block>IMPREVISIBILITE</Button> 
    
    
-            <Button size= "lg" variant = "info" value="N" onClick={this.goParcours} block>NOUVEAUTE</Button>
-            <Button size= "lg" variant = "dark" value= "E" onClick={this.goParcours} block >EGO MENACE</Button>
+            <Button className= "Btn-CINE" variant = "info" value="N" onClick={this.goParcours} block>NOUVEAUTE</Button>
+            <Button className= "Btn-CINE" variant = "dark" value= "E" onClick={this.goParcours} block >EGO MENACE</Button>
            
             </div>   : null } 
 

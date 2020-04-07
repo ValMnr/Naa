@@ -20,11 +20,31 @@ text-align: center;
     height: 22%;
 }
 .profilpsy{
-    height: 39%;
+
+    height: 40%;
+    padding: 15px;
+    margin-bottom: 10px;
+  
+  
 }
 .humeur {
     height: 35%;
 }
+
+.titre{
+    width: 80%;
+    margin: auto;
+    background-color:  #CAB294;
+    border-radius: 60px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.graph {
+    margin: auto;
+
+}
+
 
 
 .discussion {
@@ -57,14 +77,29 @@ text-align: center;
 }
 
 .bulle{
-    width: 35%;
+    width: 100%;
     float: left;
     margin-bottom: 30px;
     padding:10px 10px; 
-    font-size: 14px;
+    font-size: 24px;
+    font-weight: bolder;
+    color: white;
     border-radius:12px; 
     background-color: #7FAA8F;
 }
+
+.balle{
+    width: 100%;
+    float: right;
+    margin-bottom: 30px;
+    padding:10px 10px; 
+    font-size: 24px;
+    font-weight: bolder;
+
+    border-radius:12px; 
+    background-color: #CAB294;;
+}
+
 
 .sujet{
     margin: auto;
@@ -89,6 +124,7 @@ text-align: center;
 
 .baba{
     overflow: scroll;
+    height:100%;
 }
 
 .forme{
@@ -128,8 +164,8 @@ text-align: center;
 .valider {
    
     margin: auto;
-    margin-top: 20px;
-    margin-bottom: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     width: 150px;
 }
 
@@ -148,3 +184,19 @@ text-align: center;
     background-color: #CAB294;
 }
 
+.Btn-CINE{
+    height: 15vh;
+   font-size: 25px;
+}
+
+.chat_user {
+    float: right;
+    margin-top: 20px;
+    margin-right: 5px;
+}
+
+.rep_user_3{
+
+    width:100%
+
+}

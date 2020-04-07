@@ -47,27 +47,28 @@ export default class Humeur extends PureComponent {
     })
  
       .then(function (res) {
+        var l=res.data.length
           data = [
             {
-              name: 'J-7', humeur: res.data[0].score, amt: 2400,
+              name: 'J-7', humeur: res.data[l-7].score, amt: 2400,
             },
             {
-              name: 'J-6',  humeur: res.data[1].score, amt: 2210,
+              name: 'J-6',  humeur: res.data[l-6].score, amt: 2210,
             },
             {
-              name: 'J-5',  humeur: res.data[2].score, amt: 2290,
+              name: 'J-5',  humeur: res.data[l-5].score, amt: 2290,
             },
             {
-              name: 'J-4',  humeur: res.data[3].score, amt: 2000,
+              name: 'J-4',  humeur: res.data[l-4].score, amt: 2000,
             },
             {
-              name: 'J-3',  humeur: res.data[4].score, amt: 2181,
+              name: 'J-3',  humeur: res.data[l-3].score, amt: 2181,
             },
             {
-              name: 'J-2',  humeur: res.data[5].score, amt: 2500,
+              name: 'J-2',  humeur: res.data[l-2].score, amt: 2500,
             },
             {
-              name: 'Hier',  humeur: res.data[6].score, amt: 2100,
+              name: 'Hier',  humeur: res.data[l-1].score, amt: 2100,
             },
           ]
  
@@ -108,7 +109,7 @@ export default class Humeur extends PureComponent {
         <Tooltip />
         <Legend />
         <ReferenceLine y={0} stroke="#000" />
-        <Bar dataKey="humeur" barSize={20} fill="#8884d8" />
+        <Bar dataKey="humeur" barSize={20} fill="#2F4F4F" />
       </BarChart>
       </ResponsiveContainer>
     );

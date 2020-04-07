@@ -12,16 +12,13 @@ export class User extends Component {
         return (
 
             <div className="User">
-            <div className="infouser">
-
-            <InfoUser></InfoUser>
-
-            </div>
+        
             <div className="profilpsy">
-
+            <h3 className="titre"> MON PROFIL PSY </h3>
             <ProfilPsy></ProfilPsy>
 
             </div>
+            <h3 className= "titre">  MES HUMEURS DES DERNIERS JOURS   </h3>
             <div className="humeur">
 
             <Humeur></Humeur>

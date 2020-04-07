@@ -82,11 +82,11 @@ export default class Example extends PureComponent {
     
     return (
       
-    <ResponsiveContainer>
+    <ResponsiveContainer className= "graph">
       
-        <RadarChart cx={200} cy={80} outerRadius={50} width={100} height={100} data={this.state.data}>
+        <RadarChart outerRadius={100} width={100} height={100} data={this.state.data}>
             <PolarGrid />
-            <PolarAngleAxis dataKey="subject" fontSize={10} />
+            <PolarAngleAxis dataKey="subject" fontSize={16} />
             <PolarRadiusAxis />
             <Radar name="Mike" dataKey="A" stroke="#2F4F4F" fill="#2F4F4F" fillOpacity={0.6} />
         </RadarChart>
