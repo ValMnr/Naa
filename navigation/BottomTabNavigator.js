@@ -6,11 +6,7 @@ import LinksScreen from '../screens/LinksScreen';
 import Accueil from '../screens/Accueil';
 import User from '../screens/User';
 import Discussion from '../screens/Discussion';
-import Controle from '../screens/Controle';
-import Resultat from '../screens/Resultat';
-import Authentification from '../screens/Authentification';
-import HomePage from '../screens/HomePage';
-import CreateAccount from '../screens/CreateAccount';
+
 import CINEBOUT from '../components/CINEBOUT';
 
 
@@ -27,7 +23,7 @@ export default function BottomTabNavigator({ navigation, route }) {
   return (
    // <BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME}>
 
-   <BottomTab.Navigator initialRouteName = "Connexion" >
+   <BottomTab.Navigator initialRouteName = "Home" >
 
       <BottomTab.Screen
         name="Home"
@@ -37,36 +33,13 @@ export default function BottomTabNavigator({ navigation, route }) {
         }}
       />
 
-<BottomTab.Screen
-        name="Connexion"
-        component={HomePage}
-        options={{
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-home" />,
-        }}
-      />
 
-      <BottomTab.Screen
-        name="Auth"
-        component={Authentification}
-        options={{
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-home" />,
 
-        }}
-      />
-
-   
-
-      <BottomTab.Screen
-        name="Create"
-        component={CreateAccount}
-        options={{
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-home" />,
-        }}
-      />
+    
 
       <BottomTab.Screen
         name="User"
-        component={Resultat}
+        component={User}
         options={{
           title: 'User',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-person" />,
@@ -75,8 +48,8 @@ export default function BottomTabNavigator({ navigation, route }) {
       />
 
       <BottomTab.Screen
-        name="GetHelp"
-        component={Controle}
+        name="Cine"
+        component={CINEBOUT}
         options={{
           title: 'GetHelp',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-chatboxes" />,
@@ -84,7 +57,7 @@ export default function BottomTabNavigator({ navigation, route }) {
       />
 
       <BottomTab.Screen
-        name="Settings"
+        name="chat"
         component={Discussion}
         options={{
           title: 'Settings',
@@ -102,8 +75,7 @@ function getHeaderTitle(route) {
 
   switch (routeName) {
     
-    case 'Connexion':
-        return 'HomePage';
+   
     case 'Home':
       return 'Home';
  
