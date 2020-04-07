@@ -18,6 +18,9 @@ class Discussion extends Component {
             q1: "",
             q2: "",
             q3: "",
+            rep1: "",
+            rep2: "",
+            rep3: "",
             questionsId: [],
             answerids: [],
             score: 0
@@ -112,13 +115,13 @@ class Discussion extends Component {
             setTimeout(() => resolve(1), 10); // (*)
         }).then(function (result) { // (**)
 
-            result =  self.postQuestion('type1', self.state.q1)
+            result =  self.postQuestion('type1', self.state.rep1)
             return result;
         }).then(function (result) { // (**)
-            result = self.postQuestion('type2', self.state.q2)
+            result = self.postQuestion('type2', self.state.rep2)
             return result * 2;
         }).then(function (result) { // (***)
-            result = self.postQuestion('type3', self.state.q3)
+            result = self.postQuestion('type3', self.state.rep3)
             return result ;
         }).then(function (result) { 
           console.log('testtest')
@@ -131,7 +134,7 @@ class Discussion extends Component {
     }
 
 
-    handleSubmit = async () => {
+    handleSubmit = async () => {    
         this.sendAnswers()
     }
 
