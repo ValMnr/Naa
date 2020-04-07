@@ -18,16 +18,16 @@ import * as WebBrowser from 'expo-web-browser';
 
 import { MonoText } from '../components/StyledText';
 
-class CreateAccount extends React.Component {
+export default class CreateAccount extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        username: '',
+        pseudo: '',
         email: '',
         password: '' ,
         firstname:'',
         lastname:'',
-        sexe:null,
+        sexe:'',
         age:0,
         professionalSituation : '',
         socialSituation : '',
@@ -228,10 +228,9 @@ class CreateAccount extends React.Component {
     onClick={this.handlePress.bind(this)} 
     color="secondary" 
     size="lg" block
-    onPress={() => {
-      onSignIn().then(() => navigation.navigate("SignedIn"));
-    }}
+   
     >
+      Valider
     </Button>
 
     </div>
@@ -254,13 +253,13 @@ class CreateAccount extends React.Component {
     <FormGroup>
     <Label  for="age">Age</Label>
        <Input className="arrondi" type="age" name="age" id="age" value={this.state.age} 
-          onChange={this.handleChangeAge.bind(this)}> </Input>placeholder="Entrez votre âge" />
+          onChange={this.handleChangeAge.bind(this)} placeholder="Entrez votre âge" /> 
     </FormGroup>
 
     <FormGroup>
     <Label  for="children">Enfants</Label>
        <Input className="arrondi" type="enfants" name="enfants" id="enfants" value={this.state.children} 
-          onChange={this.handleChangeChildren.bind(this)}> </Input>placeholder="Entrez votre âge" />
+          onChange={this.handleChangeChildren.bind(this)} placeholder="Entrez votre âge" />
     </FormGroup>
 
 
@@ -288,8 +287,8 @@ class CreateAccount extends React.Component {
         
     <FormGroup>
         <Label for="source">Source</Label>
-        <Input type="select" name="source" id="exampleSource"> value={this.state.stressFactors} 
-          onChange={this.handleChangeFactors.bind(this)}
+        <Input type="select" name="source" id="exampleSource" value={this.state.stressFactors} 
+          onChange={this.handleChangeFactors.bind(this)}>
           <option>Familial</option>
           <option>Professionnel</option>
           <option>Financier</option>
@@ -361,4 +360,3 @@ class CreateAccount extends React.Component {
     }
   }
 
-export default CreateAccount ; 

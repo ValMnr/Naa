@@ -13,6 +13,7 @@ import {
 import axios from 'axios';
 import { Button, Form, FormGroup, Label, Input, FormText, Spinner } from 'reactstrap';
 import "../screens/App.css";
+import Accueil from '../screens/Accueil';
 
 export default class Authentification extends React.Component {
   constructor(props) {
@@ -24,12 +25,19 @@ export default class Authentification extends React.Component {
       email: '', // email
       password: '', // password
       loading:false,
-      message:""
+      message:"",
+      isClickAuth: false
     }
     this.handleChangeEmail = this.handleChangeEmail.bind(this);
     this.handleChangePassword = this.handleChangePassword.bind(this);
+    this.handleClickAuth = this.handleClickAuth.bind(this);
+
   }
 
+  handleClickAuth() 
+  {
+    this.setState({isClickAuth: true});
+  }
   
   handleChangeEmail(event) { 
        this.setState({
@@ -82,6 +90,7 @@ export default class Authentification extends React.Component {
 
  handlePress =  async () => {
     console.log("lol");
+    
     return fetch('http://127.0.0.1:3000/api/user/login', 
     {
       method: 'POST',
@@ -108,7 +117,11 @@ export default class Authentification extends React.Component {
 
 
     render() {
-   
+      const isClickAuth = this.state.isClickAuth ; 
+      if (isClickAuth == true)
+      {
+        return <Accueil />
+      }
       return (
         <div className=" scroll"> 
         <div className="background">
@@ -147,13 +160,21 @@ export default class Authentification extends React.Component {
 
         <Button 
         disabled={this.state.loading} 
-        onClick={()=>this.authenticate(this.state.email,this.state.password)}>
+        /*onClick={()=>this.authenticate(this.state.email,this.state.password)}>
                     {
                         (this.state.loading) ? <Spinner  color="white"/>
                         :
                         <Text style={{color:"#fff"}}>LOGIN</Text>
 
                     }
+                    */
+                 
+        onClick={this.handlePress.bind(this)} 
+        color="secondary" 
+        size="lg" block
+        onClick={this.handleClickAuth.bind(this)}      
+                   >
+                     Valider
                 </Button>
 
       
