@@ -21,7 +21,7 @@ import { MonoText } from '../components/StyledText';
 import Authentification from '../screens/Authentification';
 
  
-
+/*
 class HomePage extends React.Component {
   
   constructor(props) 
@@ -88,6 +88,7 @@ color="secondary" size="lg" block
 onClick = {this.handleClickCreate}
 >Se connecter
 </Button></div>
+
     </div>
    
     </div>
@@ -98,37 +99,15 @@ onClick = {this.handleClickCreate}
   }
 export default HomePage ; 
 
-/*
 export default function HomePage ({navigation})
  {
 return (
- 
-  <div className="border">
-  <div className="blocktext">   
-  <div className="business">
-
   <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-
-<Image 
-          style={{width: 300, height: 300}}
-          source={require('../assets/images/naa.png')}
-        />
-
+    <Text>Se connecter</Text>
     <Button
-      
+      title="Se connecter"
       onClick={() => navigation.navigate('Auth')}
-      > Se connecter </Button>
-    <br/>
-    <Button
-      
-      onClick={() => navigation.navigate('Create')}
-      > S'inscrire </Button>
-
+    />
   </View>
-  </div>
-  </div>
-  </div>
 );
 }
-
-*/

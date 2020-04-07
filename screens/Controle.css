@@ -67,9 +67,10 @@ text-align: center;
 }
 
 .sujet{
+    margin: auto;
     margin-top: 20px;
     margin-bottom: 50px;
-    margin-left: 18px;
+   
     padding:10px 10px; 
     font-size: 14px;
     border-radius:12px; 
@@ -112,7 +113,7 @@ text-align: center;
 }
 
 .retourmenu{
-    margin-left: 150px;
+
     border-radius:7px; 
     background-color: #CAB294;
 }
