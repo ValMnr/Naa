@@ -23,6 +23,7 @@ export default class CreateAccount extends React.Component {
         stressRelief: '',
         emotionalConseq: '',
         physicalConseq: '',
+        isCreated: false
 
         };
       
@@ -108,8 +109,9 @@ export default class CreateAccount extends React.Component {
   
       
     handlePress =  async () => {
+      var self = this ; 
       console.log("lol");
-      return fetch('http://127.0.0.1:3000/api/user/signup', 
+      fetch('http://127.0.0.1:3000/api/user/signup', 
       {
         method: 'POST',
         headers: {
@@ -130,14 +132,7 @@ export default class CreateAccount extends React.Component {
         .catch((error) => {
           console.error(error);
         });
-    }
-
-
-
-    handlePress2 =  async () => {
-      console.log("lol");
-      console.log(this.state);
-      return fetch('http://127.0.0.1:3000/api/profile', 
+        fetch('http://127.0.0.1:3000/api/createProfile', 
       {
         method: 'POST',
         headers: {
@@ -161,12 +156,19 @@ export default class CreateAccount extends React.Component {
         .then((response) => response.json())
         .then((json) => {
           console.log(json);
+         self.setState({isCreated:true});
+         console.log(this.state.isCreated);
+         this.Create();
           return json;
         })
         .catch((error) => {
           console.error(error);
         });
     }
+    
+    Create = () =>
+  {this.props.functioncb2(this.state.isCreated)}
+
 
     render() {
       return (
@@ -200,14 +202,7 @@ export default class CreateAccount extends React.Component {
        <FormGroup >
     <div className="float_right">
    
-    <Button 
-    onClick={this.handlePress.bind(this)} 
-    color="secondary" 
-    size="lg" block
-   
-    >
-      Valider
-    </Button>
+
 
     </div>
     </FormGroup>
@@ -321,7 +316,7 @@ export default class CreateAccount extends React.Component {
 
     <FormGroup >
     <div className="float_right">
-    <Button onClick={this.handlePress2.bind(this)} color="secondary" size="lg" block>Valider</Button>
+    <Button onClick={this.handlePress.bind(this)} color="secondary" size="lg" block>Valider</Button>
     </div>
     </FormGroup>
     

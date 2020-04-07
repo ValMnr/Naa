@@ -31,6 +31,7 @@ class Accueil extends React.Component {
     this.handleClickCreate = this.handleClickCreate.bind(this);
     this.isConnected=this.isConnected.bind(this);
     this.handleClickDeconnexion = this.handleClickDeconnexion.bind(this);
+    this.isCreated=this.isCreated.bind(this);
 
     this.state = {
       ifAuth: false,
@@ -38,7 +39,8 @@ class Accueil extends React.Component {
       logotexte:true,
       Deconnecter : false,
       Inscription : true,
-      formCreate : false
+      formCreate : false,
+    
       };
       
   }
@@ -81,17 +83,26 @@ if (connect == true)
 }
   }
 
+  isCreated = (create) =>
+  {
+if (create == true)
+{
+  this.setState({logotexte : true })
+  this.setState({formAuth : false });
+  this.setState({ifAuth: false});
+  this.setState({Deconnecter : true });
+  this.setState({Inscription : false });
+this.setState({formCreate : false});
+}
+  }
     render() {
      
   
       return (
-<div>
+        <div className = "background">
        
 <NavBar/>
 
-        <div className = "border">
-        <div className="blocktext">   
-       <div className="business">
 
 {this.state.logotexte ?
 <View style={{
@@ -141,13 +152,12 @@ onClick = {this.handleClickCreate}
 </Button> : null }
 
 {this.state.formCreate ? 
-<CreateAccount  /> : null }
+<CreateAccount functioncb2 = {this.isCreated} /> : null }
 
 </div>
-  </div>
  
-  </div>
-  </div>
+ 
+  
 
 
       );

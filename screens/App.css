@@ -11,12 +11,10 @@ H2 { text-align: center }
 .background
 {
     background-color :#d1e4d3 ;
+    overflow:scroll;
 }
 
-  .scroll
-  {
-    overflow:scroll;
-  }
+
 
     .border {
     border-width:10px;
@@ -39,8 +37,3 @@ H2 { text-align: center }
     .arrondi {
        border-radius : 10px; 
     }
-.center
-{
-    justifyContent: 'center',
-
-}
