@@ -1,22 +1,8 @@
 
-import React, { Component } from 'react';
-import {
-    Image, 
-  Platform,
-  StyleSheet,
-  TouchableOpacity,
-  Text,
-  View
-} from 'react-native';
-
+import React from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText, CustomInput } from 'reactstrap';
 import "../screens/App.css";
 
-
-import { ScrollView } from 'react-native-gesture-handler';
-import * as WebBrowser from 'expo-web-browser';
-
-import { MonoText } from '../components/StyledText';
 
 export default class CreateAccount extends React.Component {
     constructor(props) {
@@ -138,18 +124,19 @@ export default class CreateAccount extends React.Component {
           lastname:this.state.lastname
         })
       })
-        .then((response) => response.json())
-        .then((json) => {
-          console.log(json);
-          return json;
-        })
+         .then((response) => { 
+         console.log(response.user)})
+       
         .catch((error) => {
           console.error(error);
         });
     }
 
+
+
     handlePress2 =  async () => {
       console.log("lol");
+      console.log(this.state);
       return fetch('http://127.0.0.1:3000/api/profile', 
       {
         method: 'POST',
@@ -158,6 +145,7 @@ export default class CreateAccount extends React.Component {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
+        email:this.state.email,
         sexe:this.state.sexe,
         age:this.state.age,
         socialSituation : this.state.socialSituation,
@@ -183,20 +171,8 @@ export default class CreateAccount extends React.Component {
     render() {
       return (
     
-        <div className=" scroll"> 
-        <div className="background">
-        <div className="blocktext">   
-        <div className="business">
-
-        <View style={{
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}>
-        <Image 
-          style={{width: 100, height: 100}}
-          source={require('../assets/images/naa.png')}
-        />
-</View>
+<div>
+       
 <legend>Informations de Connexion</legend> 
             <Form>
 
@@ -336,9 +312,9 @@ export default class CreateAccount extends React.Component {
     <FormGroup>
         <Label for="traitement">Avez-vous déjà réussi à atténuer votre stress? </Label>
         <div>
-          <CustomInput type="checkbox" id="Croui" value="Oui" 
+          <CustomInput type="checkbox" id="Cloui" value="Oui" 
           onChange={this.handleChangePhysical.bind(this)} label="Oui" inline />
-          <CustomInput type="checkbox" id="Crnon" value="Non" 
+          <CustomInput type="checkbox" id="Clnon" value="Non" 
           onChange={this.handleChangePhysical.bind(this)} label="Non" inline />
         </div>
     </FormGroup>
@@ -351,10 +327,7 @@ export default class CreateAccount extends React.Component {
     
     </Form>
 
-    </div>
-    </div>
-    </div>
-   </div>
+  </div>
   
       );
     }
