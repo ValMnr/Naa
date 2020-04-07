@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText, CustomInput } from 'reactstrap';
 import "../screens/App.css";
@@ -216,6 +215,7 @@ export default class CreateAccount extends React.Component {
         <Input type="select" name="sexe" id="exampleSexe"
           value={this.state.sexe} 
           onChange={this.handleChangeSexe.bind(this)}>
+          <option>Choix</option>
           <option>Femme</option>
           <option>Homme</option>
         </Input>
@@ -241,7 +241,7 @@ export default class CreateAccount extends React.Component {
           <option>Agriculture</option>
           <option>Maintenance</option>
           <option>Ingénieurs</option>
-          <option>Transpors, logistique et tourisme</option>
+          <option>Transports, logistique et tourisme</option>
           <option>Artisanat</option>
           <option>Gestion, administration publique</option>
           <option>Telecommunications</option>
@@ -253,65 +253,82 @@ export default class CreateAccount extends React.Component {
           <option>Sante</option>
           <option>Enseignement, formation</option>
           <option>Politique, religion</option>
+          <option>Etudiant</option>
     </Input>    
     </FormGroup>
         
-    <FormGroup>
-        <Label for="source">Source</Label>
-        <Input type="select" name="source" id="exampleSource" value={this.state.stressFactors} 
-          onChange={this.handleChangeFactors.bind(this)}>
-          <option>Familial</option>
-          <option>Professionnel</option>
-          <option>Financier</option>
-          <option>Examens, Concours</option>
-          <option>Santé</option>
-        </Input>
-    </FormGroup>
 
     <FormGroup>
         <Label for="Niveau_Stress">Niveau de Stress</Label>
         <CustomInput type="range" id="Niveau_Stress" name="niveaustress" />
     </FormGroup>
     
+    <legend>Signes et Symptômes du Stress</legend> 
+    
     <FormGroup>
-        <Label for="confiance">Avez-vous confiance en vous ? </Label>
-        <div>
-          <CustomInput type="checkbox" id="Coui" value="Oui"
-          onChange={this.handleChangeEscape.bind(this)} label="Oui" inline />
-          <CustomInput type="checkbox" id="Cnon" value="Non"
-          onChange={this.handleChangeEscape.bind(this)} label="Non" inline />
-        </div>
+        <Label for="source">D'où vient votre stress ? </Label>
+        <Input type="select" name="source" id="exampleSource" value={this.state.stressFactors} 
+          onChange={this.handleChangeFactors.bind(this)} >
+          <option>Familial</option>
+          <option>Professionnel</option>
+          <option>Financier</option>
+          <option>Examens, Concours</option>
+          <option>Santé</option>
+          <option>Autre</option>
+        </Input>
+    </FormGroup>
+
+    <FormGroup>
+        <Label for="confiance">Comment se décrit votre stress d'un point de vue émotionnel  </Label>
+        <Input type="select" name="emotion" id="exampleEmotion" value={this.state.emotionalConseq} 
+          onChange={this.handleChangeEmotion.bind(this)}>
+          <option>Irritabilite</option>
+          <option>Anxiete</option>
+          <option>Mauvaise Estime de Soi</option>
+          <option>Constante remise en question</option>
+          <option>Autre</option>
+            
+        </Input>
     </FormGroup>
        
     
     <FormGroup>
-        <Label for="stress">Avez-vous déjà pris un traitement contre le stress ? </Label>
-        <div>
-          <CustomInput type="checkbox" id="Troui" value="Oui" 
-          onChange={this.handleChangeRelief.bind(this)} label="Oui" inline />
-          <CustomInput type="checkbox" id="Trnon" value="Non" 
-          onChange={this.handleChangeRelief.bind(this)} label="Non" inline />
-        </div>
+        <Label for="stress">Comment se décrit votre stress d'un point de vue physique ? </Label>
+        <Input type="select" name="physical" id="examplePhysical" value={this.state.physicalConseq} 
+          onChange={this.handleChangePhysical.bind(this)} >
+          <option>Maux de tête</option>
+          <option>Fatigue</option>
+          <option>Vertiges</option>
+          <option>Trouble du sommeil</option>
+          <option>Autre</option>
+          
+        </Input>
     </FormGroup>  
 
-    <FormGroup>
-        <Label for="chronique">Qualifierez-vous votre stress de chronique ? </Label>
-        <div>
-          <CustomInput type="checkbox" id="Croui" value="Oui" 
-          onChange={this.handleChangeEmotion.bind(this)} label="Oui" inline />
-          <CustomInput type="checkbox" id="Crnon" value="Non"
-          onChange={this.handleChangeEmotion.bind(this)}  label="Non" inline />
-        </div>
-    </FormGroup>
        
     <FormGroup>
-        <Label for="traitement">Avez-vous déjà réussi à atténuer votre stress? </Label>
-        <div>
-          <CustomInput type="checkbox" id="Cloui" value="Oui" 
-          onChange={this.handleChangePhysical.bind(this)} label="Oui" inline />
-          <CustomInput type="checkbox" id="Clnon" value="Non" 
-          onChange={this.handleChangePhysical.bind(this)} label="Non" inline />
-        </div>
+        <Label for="traitement">Quels sont vos échappatoires actuels pour gérer votre stress ? </Label>
+        <Input type="select" name="relief" id="exampleRelief" value={this.state.stressFactors} 
+          onChange={this.handleChangeRelief.bind(this)}>
+          <option>Tabac</option>
+          <option>Alcool</option>
+          <option>Troubles Alimentaires</option>
+          <option>Autre</option>
+          
+        </Input>
+    </FormGroup>
+
+    <FormGroup>
+        <Label for="escape">Quels sont vos solutions actuelles pour gérer votre stress ? </Label>
+        <Input type="select" name="escape" id="exampleEscape" value={this.state.stressEscape} 
+          onChange={this.handleChangeEscape.bind(this)} >
+          <option>Sport</option>
+          <option>Relaxation</option>
+          <option>Psychothérapie</option>
+          <option>Hypnose</option>
+          <option>Autre</option>
+          
+        </Input>
     </FormGroup>
 
     <FormGroup >
@@ -327,4 +344,3 @@ export default class CreateAccount extends React.Component {
       );
     }
   }
-

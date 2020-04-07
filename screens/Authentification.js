@@ -1,19 +1,10 @@
 
-import React, { Component, useReducer } from 'react';
+import React from 'react';
 import {
-  AsyncStorage,
-    Image, 
-  Platform,
   StyleSheet,
-  StyledText,
-  TouchableOpacity,
-  Text,
-  View
 } from 'react-native';
-import axios from 'axios';
-import { Button, Form, FormGroup, Label, Input, FormText, Spinner } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import "../screens/App.css";
-import Accueil from '../screens/Accueil';
 
 export default class Authentification extends React.Component {
   constructor(props) {
@@ -46,72 +37,49 @@ export default class Authentification extends React.Component {
           });
            }
 
-         /*  login=async ()=>{
-            const email = await AsyncStorage.getItem("email")
-            const password = await AsyncStorage.getItem("password")
-            if(email && password){
-                this.setState({email,password})
-                this.authenticate(email, password)
+    handlePress =  async () => {
+      console.log("lol");
+  var self=this;
+  var objetnn = false ; 
+      return fetch('http://127.0.0.1:3000/api/user/login', 
+      {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: this.state.email,
+          password: this.state.password,
+        })
+      })
     
-            }
-        }
-
-        componentDidMount(){
-          this.login()
-      }*/
-
-      /*authenticate=(email, password)=>{
-        console.log("lol de fou");
-        this.setState({loading:true , message:""})
-        axios.post('http://127.0.0.1:3000/api/user/login')
-        .then(async res=>{
-            this.setState({loading:false})
-            if(res.data.user_info.status==="Active"){
-                await AsyncStorage.setItem("email",this.state.email)
-                await AsyncStorage.setItem("password",this.state.password)
-                this.props.navigation.navigate("Home")
-
-
-            }else {
-                this.setState({message:"This account is not active",loading:false})
-
-            }
-        })
-        .catch(err=>{
-            this.setState({message:"Error connecting to the server, Please try again later.",loading:false})
-
-        })
-    }*/
-
- handlePress =  async () => {
-    console.log("lol");
-var self=this;
-    return fetch('http://127.0.0.1:3000/api/user/login', 
-    {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        email: this.state.email,
-        password: this.state.password,
+      .then((response) => {
+        console.log(response.status);
+        response.json();
+        if (response.status==200)
+        {objetnn = true ; }
       })
-    })
+           .then((json) => {
+          console.log(json);
+          if(objetnn == true)
+         { 
+         self.setState({isAuth:true});
+         }
+         else
+         {
+          self.setState({isAuth:false});
   
-    .then((response) => response.json())
-         .then((json) => {
-        console.log(json);
-       self.setState({isAuth:true});
-       console.log(this.state.isAuth);
-       this.Authent();
-        return json;
-      })
-
-      .catch((error) => {
-        console.error(error);
-      });
-  }
+         }
+         console.log(this.state.isAuth);
+         this.Authent();
+          return json;
+        })
+  
+        .catch((error) => {
+          console.error(error);
+        });
+    }
 
   Authent = () =>
   {this.props.functioncb(this.state.isAuth)}
@@ -149,15 +117,7 @@ var self=this;
         </FormGroup>
 
         <Button 
-      //disabled={this.state.loading} 
-        /*onClick={()=>this.authenticate(this.state.email,this.state.password)}>
-                    {
-                        (this.state.loading) ? <Spinner  color="white"/>
-                        :
-                        <Text style={{color:"#fff"}}>LOGIN</Text>
 
-                    }
-                    */
                  
         onClick={this.handlePress.bind(this) } 
         color="secondary" 
@@ -196,142 +156,3 @@ var self=this;
       color:"white"
     }
   });
-/*
-export default function Authentification ()
- {
-  const [username, setUsername] = React.useState('');
-  const [password, setPassword] = React.useState('');
-
-  const { signIn } = React.useContext(AuthContext);
-
-  return (
-    <View>
-      <TextInput
-        placeholder="Username"
-        value={username}
-        onChangeText={setUsername}
-      />
-      <TextInput
-        placeholder="Password"
-        value={password}
-        onChangeText={setPassword}
-        secureTextEntry
-      />
-      <Button title="Sign in" onPress={() => signIn({ username, password })} />
-    </View>
-  );
-}
-
-*/
-/*
-import React from "react";
-import { AuthContext } from "../App";
-
-export default function Authentification () {
-  const { dispatch } = React.useContext(AuthContext);
-  const initialState = {
-    email: "",
-    password: "",
-    isSubmitting: false,
-    errorMessage: null
-  };
-const [data, setData] = React.useState(initialState);
-const handleInputChange = event => {
-    setData({
-      ...data,
-      [event.target.name]: event.target.value
-    });
-  };
-
-  const handleFormSubmit = async () => {
-   
-    event.preventDefault();
-   
-    setData({
-      ...data,
-      isSubmitting: true,
-      errorMessage: null
-    });
-    
-    console.log("lol");
-
-    
-    fetch('http://127.0.0.1:3000/api/user/login', {
-      method: "POST",
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        email: data.email,
-        password: data.password
-      })
-    })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-        throw res;
-      })
-      .then(resJson => {
-        dispatch({
-            type: "LOGIN",
-            payload: resJson
-        })
-      })
-      .catch(error => {
-        setData({
-          ...data,
-          isSubmitting: false,
-          errorMessage: error.message || error.statusText
-        });
-      });
-  };
-return (
-    <div className="login-container">
-      <div className="card">
-        <div className="container">
-          <form onSubmit={handleFormSubmit}>
-            <h1>Login</h1>
-
-			<label htmlFor="email">
-              Email Address
-              <input
-                type="text"
-                value={data.email}
-                onChange={handleInputChange}
-                name="email"
-                id="email"
-              />
-            </label>
-
-			<label htmlFor="password">
-              Password
-              <input
-                type="password"
-                value={data.password}
-                onChange={handleInputChange}
-                name="password"
-                id="password"
-              />
-            </label>
-
-			{data.errorMessage && (
-              <span className="form-error">{data.errorMessage}</span>
-            )}
-
-           <button disabled={data.isSubmitting}>
-              {data.isSubmitting ? (
-                "Loading..."
-              ) : (
-                "Login"
-              )}
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-*/

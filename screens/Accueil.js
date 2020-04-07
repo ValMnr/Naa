@@ -1,24 +1,14 @@
 
-import React, { Component } from 'react';
+import React from 'react';
 import {
     Image, 
-    AsyncStorage,
-  Platform,
-  Alert,
-  StyleSheet,
-  StyledText,
-  TouchableOpacity,
-  Text,
   View
 } from 'react-native';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Button } from 'reactstrap';
 import "../screens/App.css";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { ScrollView } from 'react-native-gesture-handler';
-import * as WebBrowser from 'expo-web-browser';
 import Authentification from '../screens/Authentification';
-import { MonoText } from '../components/StyledText';
 import NavBar from './NavBar'
 import CreateAccount from '../screens/CreateAccount';
 class Accueil extends React.Component {
@@ -99,9 +89,12 @@ this.setState({formCreate : false});
      
   
       return (
-        <div className = "background">
+        <div className = "text">
        
-<NavBar/>
+        <NavBar/>
+        <div className = "background">
+        
+
 
 
 {this.state.logotexte ?
@@ -110,7 +103,7 @@ this.setState({formCreate : false});
                 alignItems: 'center',
               }}>
         <Image 
-          style={{width: 150, height: 150}}
+          style={{width: 200, height: 200}}
           source={require('../assets/images/naa.png')}
         />
          
@@ -118,14 +111,16 @@ this.setState({formCreate : false});
 :null}
 
 {this.state.logotexte ?
-<legend>  Coucou ! Moi c'est Naa </legend>
+<legend >  Coucou ! Moi c'est Naa </legend>
 : null
 }
 
 
 {this.state.formAuth ?
 <Button 
-color="secondary"  block
+ color="secondary"  
+block
+size="m"
 onClick = {this.handleClickAuth}
 >Se connecter
 </Button>
@@ -136,37 +131,38 @@ onClick = {this.handleClickAuth}
 
 {this.state.Deconnecter ? 
 <Button 
-color="secondary"  block
+color="secondary"  
+
+size="m"
 onClick = {this.handleClickDeconnexion}
 >Se déconnecter
 </Button>
 :null}
 
+<br></br>
 
-<br/>
+
 {this.state.Inscription ? 
 <Button 
-color="secondary" size="lg" block
+color="secondary" 
+size="m" 
+block
 onClick = {this.handleClickCreate}
 >S'inscrire
 </Button> : null }
+
+
 
 {this.state.formCreate ? 
 <CreateAccount functioncb2 = {this.isCreated} /> : null }
 
 </div>
- 
- 
-  
 
 
+
+</div>
       );
     }
   }
 
-export default Accueil ; 
-
-
-
-  
-   
+export default Accueil ;

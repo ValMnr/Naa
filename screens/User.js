@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Progression from '../components/Progression';
-import InfoUser from '../components/InfoUser';
 import Humeur from '../components/Humeur';
 import ProfilPsy from '../components/ProfilPsy';
 import './Controle.css';
@@ -18,7 +16,7 @@ export class User extends Component {
             <ProfilPsy></ProfilPsy>
 
             </div>
-            <h3 className= "titre">  MES HUMEURS DES DERNIERS JOURS   </h3>
+            <h3 className= "titre">  MES HUMEURS DES DERNIERS JOURS </h3>
             <div className="humeur">
 
             <Humeur></Humeur>

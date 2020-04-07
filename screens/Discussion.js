@@ -28,8 +28,11 @@ class Discussion extends Component {
             show_button1: true, 
             show_button2: false,
             show_button3: false,
+            show_button4: false,
             show_question2 : false, 
-            show_question3: false
+            show_question3: false,
+            show_question4: false,
+            answerString: '',
         }
 
         this.rep1Change = this.rep1Change.bind(this);
@@ -158,11 +161,42 @@ class Discussion extends Component {
 
     }
 
+    getAdvice() {
+        const answer = this.state.rep1 + ',' +this.state.rep2 + ',' +this.state.rep3
+        console.log(answer)
+        fetch('http://127.0.0.1:3000/api/humor/getAdvice',
+        {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              answerString: answer,        
+            })
+        })
+        .then(function (response) {
+            console.log("boubou" + response);
+            })
+        .catch((error) => {
+            console.log(error);
+        });
+    }
+
 
     handleSubmit = async () => {
+
+        
         this.sendAnswers()
         this.setState({show_rep3 : true})
         this.setState({show_button3 : false})
+        this.setState({show_question4: true})
+        this.setState({show_button4 : true})
+       
+        this.getAdvice()
+
+    
+     
     }
 
     fonctionfetch() {
@@ -258,13 +292,25 @@ class Discussion extends Component {
                          <h2 className="bulle">{this.state.q3}</h2>: null }
              
                         { this.state.show_button3? 
-                        <Input className = "rep_user_3" type="text" onChange={this.rep3Change} ></Input>: null }
+                        <Input type="text" onChange={this.rep3Change} ></Input>: null }
                         { this.state.show_button3? 
                         <Button className= "chat_user" onClick={this.handleSubmit.bind(this)}> Envoyer</Button> : null }
                          { this.state.show_rep3? 
                         <h2 className="balle">{this.state.rep3}</h2>
                         : null }
                     </label>
+
+                    <label>
+                    { this.state.show_question4? 
+                         <h2 className="bulle"> blablabla </h2>: null }
+             
+                        { this.state.show_button4? 
+                        <Input type="text"  ></Input>: null }
+                        { this.state.show_button4? 
+                        <Button className= "chat_user" > Envoyer</Button> : null }
+                        
+                    </label>
+
 
 
                 </form>

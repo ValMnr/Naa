@@ -1,4 +1,3 @@
-
 H2 { text-align: center }
 
 .blocktext{
@@ -7,24 +6,36 @@ H2 { text-align: center }
     margin-right: auto;
     
   }
-
+body
+{
+  background-color :#a9c4ab ;
+}
 .background
 {
     background-color :#d1e4d3 ;
+   
+    width : 100vw; 
+    height : 220vh;
+}
+.init
+{
+    background-color :#a9c4ab ;
     overflow:scroll;
 }
 
-
+.text
+  {
+    font-family: 'Courier New';
+  text-align: center;
+  color:black;
+  overflow:scroll; 
+  }
 
     .border {
     border-width:10px;
     border-style:solid;
     border-color: #2F4F4F;
     background-color :#d1e4d3 ;
-    }
-
-    body{
-        background-color : black ; 
     }
 
     .float_right { float: right; }
